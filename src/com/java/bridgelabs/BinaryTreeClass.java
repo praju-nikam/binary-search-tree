@@ -54,6 +54,17 @@ public class BinaryTreeClass
       System.out.print(root.data + "  ");
       inorder(root.right);
   }
+   // Added Postorder Method
+   public static void postorder(Node root)
+   {
+       if( root == null)
+       {
+           return;
+       }
+       postorder(root.left);
+       postorder(root.right);
+       System.out.print( root.data + "  ");
+   }
 
 
     public static void main(String[] args)
@@ -73,5 +84,9 @@ public class BinaryTreeClass
         System.out.println("======================================================");
         System.out.println("Display Inorder : ");
         inorder(root);
+        System.out.println();
+        System.out.println("======================================================");
+        System.out.println("Display postorder : ");
+        postorder(root);
     }
 }
