@@ -66,7 +66,46 @@ public class BinaryTreeClass
        System.out.print( root.data + "  ");
    }
 
+   // Added Level order Method
+   public static void levelorder(Node root)
+   {
+       if(root == null)
+       {
+           return;
+       }
+       Queue<Node> queue = new LinkedList<>();
+       queue.add(root);
+       queue.add(null);
+       while(! queue.isEmpty())
+       {
+           Node currentNode = queue.remove();
+           if(currentNode == null)
+           {
+               System.out.println();
+               if(queue.isEmpty())
+               {
+                   break;
+               }
+               else
+               {
+                   queue.add(null);
+               }
+           }
+           else
+           {
+               System.out.print(currentNode.data +"  ");
 
+               if(currentNode.left != null )
+               {
+                   queue.add(currentNode.left);
+               }
+               if(currentNode.right != null)
+               {
+                   queue.add(currentNode.right);
+               }
+           }
+       }
+   }
     public static void main(String[] args)
     {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-Welcome Binary Tree Program -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
@@ -88,5 +127,9 @@ public class BinaryTreeClass
         System.out.println("======================================================");
         System.out.println("Display postorder : ");
         postorder(root);
+        System.out.println();
+        System.out.println("======================================================");
+        System.out.println("Display Level Order : ");
+        levelorder(root);
     }
 }
