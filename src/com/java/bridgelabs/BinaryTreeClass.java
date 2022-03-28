@@ -18,26 +18,34 @@ public class BinaryTreeClass
            this.right = right;
        }
    }
-   static class BinaryTree
-   {
+   static class BinaryTree {
        static int index = -1;
-       public static Node buildTree(int nodes[])
-       {
-           index ++;
-           if(nodes[index] == -1)
-           {
+
+       public static Node buildTree(int nodes[]) {
+           index++;
+           if (nodes[index] == -1) {
                return null;
            }
-         Node newNode = new Node(nodes[index]);
+           Node newNode = new Node(nodes[index]);
            newNode.left = buildTree(nodes);
            newNode.right = buildTree(nodes);
            return newNode;
        }
+   }
+       // Add preorder Method
+       public static void preorder(Node root)
+       {
+           if( root == null)
+           {
+               return;
+           }
+           System.out.print(root.data +"  ");
+           preorder(root.left);
+           preorder(root.right);
+       }
 
 
 
-
- }
     public static void main(String[] args)
     {
         System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-Welcome Binary Tree Program -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*");
@@ -48,5 +56,8 @@ public class BinaryTreeClass
         System.out.println("Display Root : ");
         System.out.println(root.data);
 
+        System.out.println("======================================================");
+        System.out.println("Display Preorder : ");
+        preorder(root);
     }
 }
