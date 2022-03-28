@@ -43,7 +43,17 @@ public class BinaryTreeClass
            preorder(root.left);
            preorder(root.right);
        }
-
+  // Added Inorder Method
+  public static void inorder(Node root)
+  {
+      if(root == null)
+      {
+          return;
+      }
+      inorder(root.left);
+      System.out.print(root.data + "  ");
+      inorder(root.right);
+  }
 
 
     public static void main(String[] args)
@@ -59,5 +69,9 @@ public class BinaryTreeClass
         System.out.println("======================================================");
         System.out.println("Display Preorder : ");
         preorder(root);
+        System.out.println();
+        System.out.println("======================================================");
+        System.out.println("Display Inorder : ");
+        inorder(root);
     }
 }
